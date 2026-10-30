@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>관심 코인 관리 | Coin Note</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/crud.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="index.html">◈ COIN NOTE</a>
+      <nav aria-label="주 메뉴">
+        <a href="index.html" aria-current="page">관심 코인</a
+        ><a href="crypto.html">암호화폐 정보 ↗</a>
+      </nav>
+    </header>
+    <main>
+      <div class="intro">
+        <span class="eyebrow">MY CRYPTO WATCHLIST</span>
+        <h1>나의 관심 코인</h1>
+        <p>보유 현황과 투자 아이디어를 한곳에 기록하세요.</p>
+      </div>
+      <div class="notice">
+        데이터는 현재 브라우저에 저장됩니다. 브라우저 데이터 삭제 시 기록도
+        삭제되며, 다른 기기와 동기화되지 않습니다.
+      </div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <div class="workspace">
+        <section class="panel editor" aria-labelledby="form-title">
+          <div class="section-heading">
+            <h2 id="form-title">관심 코인 등록</h2>
+            <span class="tag" id="mode-label">NEW</span>
+          </div>
+          <p class="muted">별표(*) 항목은 필수 입력입니다.</p>
+          <form id="coin-form">
+            <label for="name">코인명 *</label
+            ><input
+              id="name"
+              name="name"
+              placeholder="예: 비트코인"
+              required
+              maxlength="80"
+            />
+            <label for="symbol">심볼 *</label
+            ><input
+              id="symbol"
+              name="symbol"
+              placeholder="예: BTC"
+              required
+              maxlength="30"
+              autocapitalize="characters"
+              spellcheck="false"
+            />
+            <div class="field-row">
+              <div>
+                <label for="price">매수가 (KRW) *</label
+                ><input
+                  id="price"
+                  name="price"
+                  type="number"
+                  min="0"
+                  step="any"
+                  placeholder="0"
+                  required
+                />
+              </div>
+              <div>
+                <label for="quantity">보유 수량 *</label
+                ><input
+                  id="quantity"
+                  name="quantity"
+                  type="number"
+                  min="0"
+                  step="any"
+                  placeholder="0.00"
+                  required
+                />
+              </div>
+            </div>
+            <label for="memo">투자 메모</label
+            ><textarea
+              id="memo"
+              name="memo"
+              rows="4"
+              maxlength="2000"
+              placeholder="관심 이유나 투자 계획을 적어 보세요."
+            ></textarea>
+            <div class="form-actions">
+              <button type="submit" class="primary" id="save-button">
+                관심 코인 등록</button
+              ><button type="button" id="cancel-button" hidden>
+                수정 취소
+              </button>
+            </div>
+          </form>
+        </section>
+        <section class="collection" aria-labelledby="list-title">
+          <div class="section-heading">
+            <h2 id="list-title">
+              관심 목록 <span id="coin-count" class="count">0</span>
+            </h2>
+            <span class="muted">직접 입력한 기록</span>
+          </div>
+          <div id="coin-list" class="coin-list"></div>
+        </section>
+      </div>
+    </main>
+    <footer>COIN NOTE · 개인 기록용 관심 코인 관리</footer>
+  </body>
+</html>
